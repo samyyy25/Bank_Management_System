@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Private Bank</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1 class="logo">🏦 Private Bank</h1>
+        {% if session.get("user_id") %}
+        <nav>
+            <a href="{{ url_for('transaction.dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('transaction.history') }}">History</a>
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        </nav>
+        {% endif %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+<div class="floating-background"> <span class="circle"></span> <span class="circle"></span> <span class="circle"></span> <span class="circle"></span> <span class="circle"></span> </div>
+</body>
+</html>

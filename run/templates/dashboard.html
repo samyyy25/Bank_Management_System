@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ user[0] }}</h2>
+<p>Current Balance: ₹ {{ user[1] }}</p>
+
+<h3>Deposit Money</h3>
+<form method="POST" action="{{ url_for('transaction.deposit') }}">
+    <input type="number" step="0.01" name="amount" placeholder="Enter Amount" required>
+    <button type="submit">Deposit</button>
+</form>
+
+<h3>Withdraw Money</h3>
+<form method="POST" action="{{ url_for('transaction.withdraw') }}">
+    <input type="number" step="0.01" name="amount" placeholder="Enter Amount" required>
+    <button type="submit">Withdraw</button>
+</form>
+{% endblock %}
