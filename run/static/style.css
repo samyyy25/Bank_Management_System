@@ -1,27 +1,64 @@
 /* Reset and Base Styles */
 body {
-font-family: 'Segoe UI', sans-serif;
-margin: 0;
-padding: 0;
-background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-color: #fff;
-overflow-x: hidden;
-position: relative;
-min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    background: radial-gradient(ellipse at top left, #0f2027, #203a43, #2c5364);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
 }
+
 
 header {
-background: rgba(0, 0, 0, 0.7);
-padding: 20px;
-text-align: center;
-position: relative;
-z-index: 10;
+    background: transparent;
+    padding: 25px 0 15px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
-header .logo {
-font-size: 28px;
-letter-spacing: 2px;
-color: #00ffcc;
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffe5;
+    font-size: 2.8rem;
+    text-shadow: 0 0 10px #00ffe5, 0 0 30px #00ffe5;
+    letter-spacing: 3px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px 25px;
+  margin: 20px auto;
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+input,
+button {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form {
+  margin-top: 10px;
+}
+
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 nav a {
@@ -52,30 +89,49 @@ border-radius: 8px;
 backdrop-filter: blur(4px);
 }
 
-input, button {
-padding: 12px;
-margin: 8px 0;
-border: none;
-width: 100%;
-font-size: 16px;
-border-radius: 5px;
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
 }
 
-input {
-background: rgba(255,255,255,0.1);
-color: #fff;
+input::placeholder {
+    color: #ccc;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00ffe5;
+    box-shadow: 0 0 10px #00ffe5;
 }
 
 button {
-background: #00ffcc;
-color: #000;
-font-weight: bold;
-cursor: pointer;
-transition: background 0.3s;
+    padding: 14px;
+    width: 100%;
+    background: linear-gradient(to right, #00ffe5, #00c2ff);
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffe5, 0 0 20px #00c2ff;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
 }
 
 button:hover {
-background: #00cc99;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #00ffe5, 0 0 30px #00c2ff;
 }
 
 table {
@@ -97,64 +153,20 @@ th {
 background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Floating Animation Background */
-.floating-background {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 1;
-overflow: hidden;
+canvas#stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
 }
-
-.floating-background .circle {
-position: absolute;
-width: 20px;
-height: 20px;
-background: #00ffcc;
-border-radius: 50%;
-opacity: 0.3;
-animation: float 10s infinite ease-in-out;
+a {
+    color: #00ffe5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
 }
-
-.floating-background .circle:nth-child(1) {
-top: 10%;
-left: 5%;
-animation-delay: 0s;
-}
-.floating-background .circle:nth-child(2) {
-top: 50%;
-left: 20%;
-animation-delay: 2s;
-}
-.floating-background .circle:nth-child(3) {
-top: 70%;
-left: 40%;
-animation-delay: 4s;
-}
-.floating-background .circle:nth-child(4) {
-top: 30%;
-left: 70%;
-animation-delay: 6s;
-}
-.floating-background .circle:nth-child(5) {
-top: 90%;
-left: 90%;
-animation-delay: 8s;
-}
-
-@keyframes float {
-0% {
-transform: translateY(0) scale(1);
-opacity: 0.3;
-}
-50% {
-transform: translateY(-100px) scale(1.5);
-opacity: 0.7;
-}
-100% {
-transform: translateY(0) scale(1);
-opacity: 0.3;
-}
+a:hover {
+    text-decoration: underline;
 }
